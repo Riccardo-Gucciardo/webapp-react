@@ -1,5 +1,4 @@
 import MovieCard from "../components/MovieCard"
-// import Review from "../components/Review"
 import axios from "axios"
 import { useState,useEffect } from "react"
 
