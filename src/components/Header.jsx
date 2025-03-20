@@ -5,8 +5,8 @@ export default function Header(){
         <header>
             <nav className="navbar navbar-expand navbar-light bg-light">
                 <div className="nav navbar-nav">
-                <NavLink className="nav-item nav-link active" to='/'>Home</NavLink>
-                
+                <NavLink className="nav-item nav-link" to='/'>Home</NavLink>
+                <NavLink className="nav-item nav-link" to='/movies/create'>crea film</NavLink>
                 </div>
             </nav>
         </header>
