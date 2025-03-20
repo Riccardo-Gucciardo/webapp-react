@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 
-export default function ReviewForm({movie_id}){
+export default function ReviewForm({movie_id,reloadReviews}){
 
     const endpoint = `http://localhost:3000/movies/${movie_id}/reviews`
 
@@ -13,17 +13,22 @@ export default function ReviewForm({movie_id}){
 
     const [formData,setFormData] = useState(initialValue)
 
-    const handleSubmit = () => {
-    axios
-    .post(endpoint,formData,{
-        headers: {
-            "Content-Type": 'application/json'
-        }
-    })
-    .then(() => {
-        setFormData(initialValue)
-    })
-    .catch((err) => console.log(err))        
+    const handleSubmit = (e) => {
+        
+        e.preventDefault();
+
+        axios
+        .post(endpoint,formData,{
+            headers: {
+                "Content-Type": 'application/json'
+            }
+        })
+        .then(() => {
+            setFormData(initialValue)
+            
+            reloadReviews()
+        })
+        .catch((err) => console.log(err))        
     }
 
     const setFieldValue = (e) => {
