@@ -7,30 +7,30 @@ export default function FilmPage(){
 
     const {id} = useParams()
 
-    const [movie,setMovie] = useState({})
+    const [movie,setMovie] =useState({});
 
-    const fetchMovie = () => {
+    const fetcMovie = () => {
         axios.get(`http://localhost:3000/movies/${id}`)
-        .then(res => setMovie(res.data))
-        .catch(err => console.log(err));
+        .then((res) => setMovie(res.data))
+        .catch((err) => console.log(err))
     }
 
-    const renderReview = () => {
-        movie.reviews?.map(review => {
-            return(
-                <ReviewCard key={review.id} review={review}/>
-            )
-        })
+    useEffect(fetcMovie,[id]);
 
+    const renderReviews = () => {
+        return movie.reviews.map((review) => {
+            return <ReviewCard key={review.id} review={review}/>
+            })
+        
     }
 
-    useEffect(fetchMovie,[id])
     return(
         <>
         <h1>{movie.title}</h1>
+
         <section>
-            <h4>our comunity reviews</h4>
-            {renderReview()}
+            <h4>our comments</h4>
+            {renderReviews()}
         </section>
         </>
     )

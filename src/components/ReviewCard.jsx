@@ -1,7 +1,6 @@
-export default function ReviewCard(review)
-{
-    const {id, movie_id ,name,vote,text} = review
-    
+export default function ReviewCard({review}){
+
+    const {id,movie_id,name,vote,text} = review;
     
     return(
         <>
@@ -9,9 +8,7 @@ export default function ReviewCard(review)
             <div className="card-body">
                 <h5>{name}</h5>
                 <p className="card-text">{text}</p>
-                <section>
-                    <h4>or reviews {vote}</h4>
-                </section>
+                <span>voto : {vote}</span>
             </div>
         </div> 
         </>
