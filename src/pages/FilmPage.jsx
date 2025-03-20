@@ -38,7 +38,7 @@ export default function FilmPage(){
 
         <section>
             {movie?.id && <ReviewForm movie_id={movie.id} reloadReviews={fetcMovie}/>}
-        </section>
-        </>
+        </section> 
+        </> 
     )
 }
