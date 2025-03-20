@@ -18,7 +18,7 @@ export default function FilmPage(){
     useEffect(fetcMovie,[id]);
 
     const renderReviews = () => {
-        return movie.reviews.map((review) => {
+        return movie.reviews?.map((review) => {
             return <ReviewCard key={review.id} review={review}/>
             })
         
